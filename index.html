@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isuzu Yuk Tashish Xizmati | 5 tonna, 10 tonna</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #ff6d00;
+            --secondary-dark: #e65100;
+            --accent: #00c853;
+            --dark: #1a237e;
+            --light: #f5f7fa;
+            --gray: #5f6368;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-number {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 5rem;
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--secondary), var(--secondary-dark));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            box-shadow: 0 10px 20px rgba(255, 109, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 109, 0, 0.4);
+        }
+
+        /* Trucks Section */
+        .trucks-section {
+            padding: 6rem 5%;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+        }
+
+        .trucks-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .truck-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .truck-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .truck-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .truck-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .truck-card:hover .truck-image img {
+            transform: scale(1.05);
+        }
+
+        .truck-info {
+            padding: 2rem;
+        }
+
+        .truck-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .truck-capacity {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .truck-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .truck-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .truck-features i {
+            color: var(--accent);
+        }
+
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .contact-button:hover {
+            background: linear-gradient(to right, var(--primary-dark), var(--dark));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 115, 232, 0.3);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 5%;
+            background-color: white;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            transform: translateY(-10px);
+        }
+
+        .service-card:hover .service-icon {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0a0e2e;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: modalFade 0.3s;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-phone {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin: 1.5rem 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero {
+                padding: 8rem 5% 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .phone-number {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                padding: 1rem;
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                z-index: 999;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-truck-moving"></i></div>
+                <div class="logo-text">ISUZU<span>YUK</span></div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="#home">Bosh Sahifa</a>
+                <a href="#trucks">Mashinalarimiz</a>
+                <a href="#services">Xizmatlar</a>
+                <a href="#contact">Aloqa</a>
+                <div class="phone-number">
+                    <i class="fas fa-phone-alt"></i>
+                    +998 90 123 45 67
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home">Bosh Sahifa</a>
+            <a href="#trucks">Mashinalarimiz</a>
+            <a href="#services">Xizmatlar</a>
+            <a href="#contact">Aloqa</a>
+            <div class="phone-number" style="background: transparent; padding: 0;">
+                <i class="fas fa-phone-alt"></i>
+                +998 90 123 45 67
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ISUZU Yuk Tashish Xizmati</h1>
+            <p><span class="highlight">5 tonnalik</span> va <span class="highlight">10 tonnalik</span> Isuzu yuk mashinalari bilan istalgan yukingizni istalgan manzilga etkazib beramiz.</p>
+            <p>Ishonchli, tezkor va arzon narxlarda yuk tashish xizmati</p>
+            <a href="#trucks" class="cta-button">Yuk Jo'natish</a>
+        </div>
+    </section>
+
+    <!-- Trucks Section -->
+    <section class="trucks-section" id="trucks">
+        <h2 class="section-title">Mashinalarimiz</h2>
+        <p class="section-subtitle">Yukingiz hajmiga mos mashinani tanlang va darhol bog'laning</p>
+        
+        <div class="trucks-container">
+            <!-- 5 Ton Truck -->
+            <div class="truck-card">
+                <div class="truck-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="5 tonnalik Isuzu yuk mashinasi">
+                </div>
+                <div class="truck-info">
+                    <h3 class="truck-title">ISUZU NPR 5 TONNA</h3>
+                    <div class="truck-capacity">5 Tonna Yuk Tashish</div>
+                    <ul class="truck-features">
+                        <li><i class="fas fa-check-circle"></i> Yuk hajmi: 18-22 m³</li>
+                        <li><i class="fas fa-check-circle"></i> Oʻrtacha tezlik: 80 km/soat</li>
+                        <li><i class="fas fa-check-circle"></i> Yoqilgʻi sarfi: 12-14 l/100km</li>
+                        <li><i class="fas fa-check-circle"></i> Ishchi balandlik: 1.8 m</li>
+                    </ul>
+                    <button class="contact-button" data-truck="5 tonnalik Isuzu" data-phone="+998 90 123 45 67">
+                        <i class="fas fa-phone-alt"></i> Yuk Jo'natish Uchun Bog'lanish
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 10 Ton Truck -->
+            <div class="truck-card">
+                <div class="truck-image">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="10 tonnalik Isuzu yuk mashinasi">
+                </div>
+                <div class="truck-info">
+                    <h3 class="truck-title">ISUZU FVR 10 TONNA</h3>
+                    <div class="truck-capacity">10 Tonna Yuk Tashish</div>
+                    <ul class="truck-features">
+                        <li><i class="fas fa-check-circle"></i> Yuk hajmi: 35-40 m³</li>
+                        <li><i class="fas fa-check-circle"></i> Oʻrtacha tezlik: 75 km/soat</li>
+                        <li><i class="fas fa-check-circle"></i> Yoqilgʻi sarfi: 16-18 l/100km</li>
+                        <li><i class="fas fa-check-circle"></i> Ishchi balandlik: 2.2 m</li>
+                    </ul>
+                    <button class="contact-button" data-truck="10 tonnalik Isuzu" data-phone="+998 90 987 65 43">
+                        <i class="fas fa-phone-alt"></i> Yuk Jo'natish Uchun Bog'lanish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <h2 class="section-title">Xizmatlarimiz</h2>
+        <p class="section-subtitle">Bizning yuk tashish xizmatlarimiz</p>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3 class="service-title">Tezkor Yuk Tashish</h3>
+                <p>Buyurtmangizni qabul qilganimizdan so'ng 2 soat ichida yuk mashinasi manzilingizda.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3 class="service-title">Butun O'zbekiston Bo'ylab</h3>
+                <p>Toshkent, Samarqand, Buxoro, Xiva va boshqa barcha shaharlarga yuk tashish.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">Yuk Kafolati</h3>
+                <p>Yukingizning xavfsizligi va butunligi kafolatlangan. Sug'urta xizmati ham mavjud.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" style="color: white;">Yuk Jo'natish Uchun Aloqa</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Biz bilan bog'laning</h3>
+                <p>Yuk jo'natish, narxlar yoki boshqa savollar bo'yicha biz bilan bog'laning. Ishonchli va tezkor xizmat kafolat.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Telefon Raqamlar</h4>
+                            <p>+998 90 123 45 67 (5 tonna)</p>
+                            <p>+998 90 987 65 43 (10 tonna)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Ish Vaqtlari</h4>
+                            <p>Dushanba - Shanba: 08:00 - 22:00</p>
+                            <p>Yakshanba: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Manzilimiz</h4>
+                            <p>Toshkent shahar, Yunusobod tumani</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="color: var(--dark); margin-bottom: 1.5rem;">Yuk Jo'natish So'rovi</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Ismingiz</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefon Raqamingiz</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="truckType">Mashina Turi</label>
+                        <select id="truckType" required>
+                            <option value="">Tanlang</option>
+                            <option value="5 tonnalik Isuzu">5 tonnalik Isuzu</option>
+                            <option value="10 tonnalik Isuzu">10 tonnalik Isuzu</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Qo'shimcha Ma'lumot (yuk turi, manzil, vaqt)</label>
+                        <textarea id="message" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="contact-button">So'rov Yuborish</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ISUZU Yuk Tashish</h4>
+                <p>O'zbekiston bo'ylab ishonchli va tezkor yuk tashish xizmati. 5 tonnalik va 10 tonnalik Isuzu yuk mashinalari.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Mashinalarimiz</h4>
+                <ul style="list-style: none;">
+                    <li><a href="#trucks" style="color: #ccc; text-decoration: none;">5 tonnalik Isuzu</a></li>
+                    <li><a href="#trucks" style="color: #ccc; text-decoration: none;">10 tonnalik Isuzu</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Aloqa Ma'lumotlari</h4>
+                <p><i class="fas fa-phone-alt"></i> +998 90 123 45 67</p>
+                <p><i class="fas fa-phone-alt"></i> +998 90 987 65 43</p>
+                <p><i class="fas fa-envelope"></i> info@isuzuyuk.uz</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 ISUZU Yuk Tashish Xizmati. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <!-- Phone Modal -->
+    <div class="modal" id="phoneModal">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-content">
+            <h3 id="modalTruckTitle">5 tonnalik Isuzu</h3>
+            <p>Yuk jo'natish uchun quyidagi raqamga qo'ng'iroq qiling:</p>
+            <div class="modal-phone" id="modalPhoneNumber">+998 90 123 45 67</div>
+            <p>Ish vaqtlari: 08:00 - 22:00 (Dushanba - Shanba)</p>
+            <button class="contact-button" id="modalCallButton" style="margin-top: 1.5rem;">
+                <i class="fas fa-phone-alt"></i> Qo'ng'iroq Qilish
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+            });
+        });
+        
+        // Phone Modal
+        const phoneModal = document.getElementById('phoneModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalTruckTitle = document.getElementById('modalTruckTitle');
+        const modalPhoneNumber = document.getElementById('modalPhoneNumber');
+        const modalCallButton = document.getElementById('modalCallButton');
+        
+        // Open modal when truck contact button is clicked
+        document.querySelectorAll('.contact-button[data-truck]').forEach(button => {
+            button.addEventListener('click', function() {
+                const truckType = this.getAttribute('data-truck');
+                const phoneNumber = this.getAttribute('data-phone');
+                
+                modalTruckTitle.textContent = truckType;
+                modalPhoneNumber.textContent = phoneNumber;
+                modalCallButton.setAttribute('href', `tel:${phoneNumber}`);
+                
+                phoneModal.style.display = 'flex';
+            });
+        });
+        
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            phoneModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        phoneModal.addEventListener('click', (e) => {
+            if (e.target === phoneModal) {
+                phoneModal.style.display = 'none';
+            }
+        });
+        
+        // Form Submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const truckType = document.getElementById('truckType').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would normally send the data to a server
+            // For this example, we'll just show an alert
+            alert(`So'rovingiz qabul qilindi!\n\nIsm: ${name}\nTelefon: ${phone}\nMashina: ${truckType}\nXabar: ${message}\n\nTez orada siz bilan bog'lanamiz.`);
+            
+            // Reset form
+            this.reset();
+            
+            // Close modal if open
+            phoneModal.style.display = 'none';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if(window.scrollY > 100) {
+                header.style.background = 'rgba(26, 35, 126, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
